@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity"
+    tools:context=".ui.CadastroActivity"
     android:background="@drawable/splash_firebase">
 
     <include
-        android:id="@+id/inc_login"
-        layout="@layout/layout_login"
+        android:id="@+id/inc_cadastro"
+        layout="@layout/layout_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
