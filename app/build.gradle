@@ -47,4 +47,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     implementation 'com.github.d-max:spots-dialog:1.1@aar'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Dependência RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //Dependência Fragment ktx
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }

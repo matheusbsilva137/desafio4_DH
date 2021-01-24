@@ -1,8 +1,9 @@
-package com.digitalhouse.desafio4_dh
+package com.digitalhouse.desafio4_dh.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.digitalhouse.desafio4_dh.R
 import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() {

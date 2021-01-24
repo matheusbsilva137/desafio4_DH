@@ -1,11 +1,12 @@
-package com.digitalhouse.desafio4_dh
+package com.digitalhouse.desafio4_dh.ui
 
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import com.digitalhouse.desafio4_dh.R
+import com.digitalhouse.desafio4_dh.service.cr
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -18,8 +19,6 @@ class CadastroGameActivity : AppCompatActivity() {
 
     lateinit var alertDialog: AlertDialog
     lateinit var storageReference: StorageReference
-    private lateinit var db: FirebaseFirestore
-    private lateinit var cr: CollectionReference
     private val CODE_IMG = 1000
     lateinit var urlImg: String
 
@@ -40,8 +39,6 @@ class CadastroGameActivity : AppCompatActivity() {
 
     fun config(){
         alertDialog = SpotsDialog.Builder().setContext(this).build()
-        db = FirebaseFirestore.getInstance()
-        cr = db.collection("games")
     }
 
     fun getData(): MutableMap<String, Any>{
@@ -83,7 +80,6 @@ class CadastroGameActivity : AppCompatActivity() {
 
         if (requestCode == CODE_IMG){
             alertDialog.show()
-            data!!.dataString
 
             storageReference = FirebaseStorage.getInstance().getReference(data!!.dataString!!)
             val uploadTask = storageReference.putFile(data!!.data!!)
