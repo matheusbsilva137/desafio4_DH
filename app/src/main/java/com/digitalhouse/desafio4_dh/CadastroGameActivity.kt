@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import dmax.dialog.SpotsDialog
@@ -16,6 +18,8 @@ class CadastroGameActivity : AppCompatActivity() {
 
     lateinit var alertDialog: AlertDialog
     lateinit var storageReference: StorageReference
+    private lateinit var db: FirebaseFirestore
+    private lateinit var cr: CollectionReference
     private val CODE_IMG = 1000
     lateinit var urlImg: String
 
@@ -29,12 +33,41 @@ class CadastroGameActivity : AppCompatActivity() {
         }
 
         inc_cadastro_game.btn_cadastro.setOnClickListener {
-
+            var game = getData()
+            sendGame(game)
         }
     }
 
     fun config(){
         alertDialog = SpotsDialog.Builder().setContext(this).build()
+        db = FirebaseFirestore.getInstance()
+        cr = db.collection("games")
+    }
+
+    fun getData(): MutableMap<String, Any>{
+        val game: MutableMap<String, Any> = HashMap()
+
+        game["name"] = inc_cadastro_game.tiet_name_game.text.toString()
+        game["creationDate"] = inc_cadastro_game.tiet_created_at_game.text.toString()
+        game["description"] = inc_cadastro_game.tiet_description_game.text.toString()
+        game["urlImg"] = urlImg
+
+        return game
+    }
+
+    fun sendGame(game: MutableMap<String, Any>){
+        val name = inc_cadastro_game.tiet_name_game.text.toString()
+
+        cr.document(name).set(game).addOnSuccessListener {
+            Toast.makeText(this, "Jogo cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+
+            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }.addOnFailureListener{
+            Toast.makeText(this, "Falha ao cadastrar o jogo! Tente novamente.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     //Configura a intent para obter a imagem da galeria
