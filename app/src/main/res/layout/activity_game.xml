@@ -93,26 +93,32 @@
                 android:textStyle="bold"
                 android:textSize="15dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/tv_data_pub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2018"
                 android:textSize="15dp"
-                android:layout_marginLeft="2dp"/>
+                android:inputType="date"
+                android:enabled="false"
+                android:layout_marginLeft="2dp"
+                android:textColor="@drawable/colors_edit_text"/>
         </LinearLayout>
 
-        <TextView
+        <EditText
             android:id="@+id/tv_descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Descricao"
             android:textSize="18dp"
+            android:inputType="textMultiLine"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:enabled="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_pub"/>
+            app:layout_constraintTop_toBottomOf="@id/ll_pub"
+            android:textColor="@drawable/colors_edit_text"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

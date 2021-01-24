@@ -1,7 +1,6 @@
 package com.digitalhouse.desafio4_dh.ui
 
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.digitalhouse.desafio4_dh.entities.Game

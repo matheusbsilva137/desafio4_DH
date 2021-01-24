@@ -12,4 +12,5 @@
     <color name="blueLink">#00A6FF</color>
     <color name="darkBlue">#00796B</color>
     <color name="greyBkg">#DDDDDD</color>
+    <color name="enabled_color">#808080</color>
 </resources>
