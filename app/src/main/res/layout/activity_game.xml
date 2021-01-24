@@ -58,6 +58,7 @@
             android:background="@drawable/circle_cam"
             android:padding="20dp"
             android:layout_marginRight="15dp"
+            android:clickable="true"
             android:src="@drawable/ic_baseline_edit_24"
             app:layout_constraintBottom_toTopOf="@+id/tv_titulo"
             app:layout_constraintEnd_toEndOf="parent" />
